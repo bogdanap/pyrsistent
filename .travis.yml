@@ -1,13 +1,12 @@
-language: python
+language: minimal
 sudo: false
 install:
   - pip install -r requirements.txt
 
-python:
-  - 3.6
+#python:
+#  - 3.6
 
 script:
-  - pyenv global system 2.7 3.4 3.5 3.6 pypy
   - tox
 
 env:
