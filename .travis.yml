@@ -1,7 +1,7 @@
 language: generic
 sudo: false
 install:
-  - pip install -r requirements.txt
+  - pip install --user -r requirements.txt
   - pyenv install 3.5 3.6 pypy
 
 script:
