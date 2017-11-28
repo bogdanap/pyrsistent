@@ -2,12 +2,12 @@ language: generic
 sudo: false
 install:
   - pip install --user -r requirements.txt
-  - pyenv install 3.4
-  - pyenv install 3.6
-  - pyenv install pypy
+  - pyenv install 3.4.6
+  - pyenv install 3.6.2
+  - pyenv install pypy-5.8.0
 
 script:
-  - pyenv global system 2.7 3.4 3.5 3.6 pypy
+  - pyenv global system 2.7 3.4.6 3.5 3.6.2 pypy-5.8.0
   - tox
 
 env:
