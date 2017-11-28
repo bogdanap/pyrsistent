@@ -1,27 +1,19 @@
-language: python
+language: generic
 sudo: false
 install:
   - pip install -r requirements.txt
+  - pyenv install 3.5 3.6 pypy
 
 script:
   - tox
 
 env:
-  - python: 2.7
-    env: TOXENV=py27
-  - python: 3.4
-    env: TOXENV=py34
-  - python: 3.5
-    env: TOXENV=py35
-  - python: 3.6
-    env: TOXENV=py36
-  - python: pypy
-    env: TOXENV=pypy
-  - python: 2.7
-    env: TOXENV=memorytest27
-  - python: 3.6
-    env: TOXENV=memorytest36
-  - python: 2.7
-    env: TOXENV=doctest27
-  - python: 3.6
-    env: TOXENV=coverage-py36
+  - TOXENV=py27
+  - OXENV=py34
+  - TOXENV=py35
+  - OXENV=py36
+  - TOXENV=pypy
+  - TOXENV=memorytest27
+  - TOXENV=memorytest36
+  - TOXENV=doctest27
+  - TOXENV=coverage-py36
