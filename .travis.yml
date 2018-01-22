@@ -1,22 +1,28 @@
-language: generic
+language: python
 sudo: false
 install:
   - pip install --user -r requirements.txt
-  - sudo pyenv install 3.4.6
-  - sudo pyenv install 3.6.2
-  - sudo pyenv install pypy-5.8.0
 
 script:
-  - pyenv global system 2.7 3.4.6 3.5 3.6.2 pypy-5.8.0
   - tox
 
-env:
-  - TOXENV=py27
-  - OXENV=py34
-  - TOXENV=py35
-  - OXENV=py36
-  - TOXENV=pypy
-  - TOXENV=memorytest27
-  - TOXENV=memorytest36
-  - TOXENV=doctest27
-  - TOXENV=coverage-py36
+matrix:
+  include:
+    - python: '2.7'
+      env: TOXENV=py27
+  - python: '3.4'
+    env: TOXENV=py34
+  - python: '3.5'
+    env: TOXENV=py35
+  - python: '3.6'
+    env: TOXENV=py36
+  - python: 'pypy'
+    env: TOXENV=pypy
+  - python: '2.7'
+    env: TOXENV=memorytest27
+  - python: '3.6'
+    env: TOXENV=memorytest36
+  - python: '2.7'
+    env: TOXENV=doctest27
+  - python: '3.6'
+    env: TOXENV=coverage-py36
